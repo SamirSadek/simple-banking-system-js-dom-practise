@@ -11,9 +11,14 @@ document.getElementById('btn-withdraw').addEventListener('click',function(){
     const balanceField = document.getElementById('balance');
     const previousBalanceString = balanceField.innerText;
     const previousBalance = parseFloat(previousBalanceString);
+    withdrawField.value = '';
+    if(newWithdrawAmount>previousBalance){
+        alert("tr kache etw taka nai");
+        return;
+    }
 
     const currentBalanceTotal = previousBalance - newWithdrawAmount;
     withdrawTotal.innerText = currentWithdrawTotal;
     balanceField.innerText = currentBalanceTotal;
-    withdrawField.value = '';
+   
 })
